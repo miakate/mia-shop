@@ -9,7 +9,7 @@ const routes: Routes = [{
     path: 'login',
     loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
   },
-  { path: 'dashboard/products', loadChildren: () => import('./dashboard/products/products.module').then(m => m.ProductsModule) }];
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
