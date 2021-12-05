@@ -1,7 +1,4 @@
 {
-  "database": {
-    "rules": "firebase_rules.json"
-  },
   "hosting": {
     "public": "dist/mia-shop",
     "ignore": [

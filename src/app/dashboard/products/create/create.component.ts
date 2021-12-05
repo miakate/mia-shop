@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Products} from "../../../core/models/products.model";
+import {ProductsService} from "../../../core/services/products.service";
 
 @Component({
   selector: 'app-create',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateComponent implements OnInit {
 
-  constructor() { }
+  tutorial: Products = new Products();
+  submitted = false;
+
+  constructor(private tutorialService: ProductsService) {
+  }
 
   ngOnInit(): void {
   }
 
+  saveTutorial(): void {
+    this.tutorialService.create(this.tutorial).then(() => {
+      console.log('Created new item successfully!');
+      this.submitted = true;
+    });
+  }
+
+  newTutorial(): void {
+    this.submitted = false;
+    this.tutorial = new Products();
+  }
 }
