@@ -1,16 +1,13 @@
 {
+  "database": {
+    "rules": "firebase_rules.json"
+  },
   "hosting": {
     "public": "dist/mia-shop",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
     ]
   }
 }
