@@ -1,0 +1,47 @@
+<div class="signup-form p-5 mt-5">
+  <form (submit)="signUp()" [formGroup]="signUpForm" autocomplete="off">
+    <h2>Sign Up</h2>
+    <p>Please fill in this form to create an account!</p>
+    <hr>
+
+    <div class="form-group mb-3">
+      <label for="name" class="form-label">Email address</label>
+      <input id="name" formControlName="name"
+             [class.is-invalid]="signUpForm.controls.name.invalid && signUpForm.controls.name.touched"
+             type="text" class="form-control" name="name" value="" required autofocus>
+      <div class="invalid-feedback">
+        Name is required
+      </div>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="email" formControlName="email"
+             [class.is-invalid]="signUpForm.controls.name.invalid && signUpForm.controls.name.touched"
+             name="name" value="" required autofocus>
+      <div class="invalid-feedback">
+        Email is required
+      </div>
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" id="password" formControlName="password"
+             [class.is-invalid]="signUpForm.controls.name.invalid && signUpForm.controls.name.touched"
+             name="password" required>
+      <div class="invalid-feedback">
+        Password is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="checkbox-inline"><input type="checkbox" required> I accept the <a href="#">Terms of
+        Use</a> &amp; <a href="#">Privacy Policy</a></label>
+    </div>
+
+    <div class="form-group mt-3">
+      <button type="submit" class="btn btn-success btn-lg">Sign Up</button>
+    </div>
+  </form>
+  <div class="text-center mt-3">Already have an account? <a href="#">Login here</a></div>
+</div>

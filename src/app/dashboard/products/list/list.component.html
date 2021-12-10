@@ -1,34 +1,50 @@
-<app-create></app-create>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8">
+      <h4>Tutorials List</h4>
+      <div class="container-fluid">
+        <div class="row row-cols-4">
+          <div class="col m-3" *ngFor="let tutorial of tutorials; let i = index">
+            <div class="card">
+              <!--        <img src="" class="card-img-top" alt="...">-->
+              <div class="card-body">
+                <h5 class="card-title">{{ tutorial.title }}</h5>
+                <p class="card-text">{{tutorial.description }}</p>
+                <button class="btn btn-info" (click)="setActiveTutorial(tutorial, i)">Edit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-<div class="list row">
-  <div class="col-md-6">
-    <h4>Tutorials List</h4>
-    <ul class="list-group">
-      <li
-        class="list-group-item"
-        *ngFor="let tutorial of tutorials; let i = index"
-        [class.active]="i == currentIndex"
-        (click)="setActiveTutorial(tutorial, i)"
-      >
-        {{ tutorial.title }}
-      </li>
-    </ul>
+      <!--      <ul class="list-group">-->
+      <!--        <li-->
+      <!--          class="list-group-item"-->
+      <!--          *ngFor="let tutorial of tutorials; let i = index"-->
+      <!--          [class.active]="i == currentIndex"-->
+      <!--          (click)="setActiveTutorial(tutorial, i)">-->
+      <!--          {{ tutorial.title }}-->
+      <!--        </li>-->
+      <!--      </ul>-->
 
-    <button class="m-3 btn btn-sm btn-danger" (click)="removeAllTutorials()">
-      Remove All
-    </button>
-  </div>
-  <div class="col-md-6">
-    <div *ngIf="currentTutorial">
-      <app-edit
-        (refreshList)="refreshList()"
-        [tutorial]="currentTutorial">
-      </app-edit>
+      <button class="m-3 btn btn-sm btn-danger" (click)="removeAllTutorials()">
+        Remove All
+      </button>
     </div>
 
-    <div *ngIf="!currentTutorial">
-      <br/>
-      <p>Please click on a Tutorial...</p>
+    <div class="col-md-4 p-2">
+      <div *ngIf="currentTutorial">
+        <h4>Edit Products</h4>
+        <app-edit
+          (refreshList)="refreshList()"
+          [tutorial]="currentTutorial">
+        </app-edit>
+      </div>
+      <div *ngIf="!currentTutorial">
+        <h4>Create Products</h4>
+        <app-create></app-create>
+      </div>
+
     </div>
   </div>
 </div>
